@@ -1,20 +1,11 @@
 #!/usr/bin/env python3
-"""Worst Fix Ever: Funniest Commit Message (make.fun).
-
-Writes one commit message for the bug fix that made everything worse:
-the startup crash is "fixed" because the app no longer starts at all,
-so there are no more crashes. Pure stdlib only.
-"""
+"""make.fun entry: Worst Fix Ever: Funniest Commit Message. Writes the single keeper line to /output/entry.txt. Pure Python stdlib only (the grader runs python:3.13-slim)."""
 import os
-
-ENTRY = "fix: crash on startup - app no longer starts, so no more crashes"
-
-
+LINE = "fix: crash on startup - app no longer starts, so no more crashes"
 def main():
-    os.makedirs("/output", exist_ok=True)
-    with open("/output/entry.txt", "w", encoding="utf-8") as f:
-        f.write(ENTRY)
-
-
+    out_dir = "/output"
+    os.makedirs(out_dir, exist_ok=True)
+    with open(os.path.join(out_dir, "entry.txt"), "w", encoding="utf-8") as f:
+        f.write(LINE)
 if __name__ == "__main__":
     main()
